@@ -1,0 +1,24 @@
+{
+  "name": "react-native-reachability",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "reachability"
+  ],
+  "author": "",
+  "license": "",
+  "peerDependencies": {
+    "react-native": "^0.55.4"
+  },
+  "devDependencies": {
+    "react-native": "^0.55.4"
+  },
+  "dependencies": {
+    "npm": "^6.1.0"
+  }
+}
