@@ -6,28 +6,10 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(isReachable:(NSString *)address callBack:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(isReachable:(NSInteger *)timeout resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
-    if ([address length] == 0)
-        address = @"8.8.8.8";
-    
-    Reachability *reachability = [Reachability reachabilityWithHostName:address];
-    
-    int flag = 0;
-    
-    switch([reachability currentReachabilityStatus]){
-            
-        case NotReachable:
-            flag = 0;
-            break;
-        case ReachableViaWiFi:
-            flag = 1;
-            break;
-        case ReachableViaWWAN:
-            flag = 1;
-            break;
-    }
-    callback(@[[NSNull null],@(flag)]);
+    NetworkStatus status = [[Reachability reachabilityWithHostName:@"8.8.8.8"] currentReachabilityStatus];
+    resolve(@(status == ReachableViaWiFi || status == ReachableViaWWAN ? true : false));
 }
 
 @end

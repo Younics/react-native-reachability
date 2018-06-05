@@ -5,9 +5,10 @@ import { isReachable } from './ReachabilityTester';
 export default class App extends React.Component {
 
   render() {
-    isReachable().then((result) => {
+    isReachable().then(result => {
       console.log(result);
     });
+    
     return (
       <View style={styles.container}>
         <Text>{"Test"}</Text>

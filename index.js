@@ -1,30 +1,21 @@
-import { NativeModules } from 'react-native';
+import { Platform, NativeModules } from 'react-native';
 
 const { NativeReachability } = NativeModules;
 
-export const ReachabilityTypes = {
-  NOT_REACHABLE: 'NOT_REACHABLE',
-  REACHABLE: 'REACHABLE',
-};
+export const isReachable = async (timeout?: Number) => {
+  timeout = timeout ? timeout : 5000;
 
-const ReachabilityTypesArray = [
-  ReachabilityTypes.NOT_REACHABLE,
-  ReachabilityTypes.REACHABLE,
-];
-
-export const isReachable = async (url?: String, timeout?: Number) => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(ReachabilityTypes.NOT_REACHABLE);
-    }, timeout ? timeout : 5000)
-
-    NativeReachability.isReachable(url,
-      (error, result) => {
-        error && reject(error);
-        result && resolve(ReachabilityTypesArray[result]);
-      }
-    );
+    NativeReachability.isReachable(timeout)
+      .then(result => {
+        if (Platform.OS === 'ios') {
+          resolve(result === 1 ? true : false);
+        } else {
+          resolve(result);
+        }
+      })
+      .catch(error => {
+        reject(error);
+      });
   })
 }
-
-export default NativeReachability;
