@@ -1,5 +1,5 @@
 
-# react-native-react-native-reachability
+# react-native-reachability
 
 ## Getting started
 
