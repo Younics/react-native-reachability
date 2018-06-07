@@ -3,11 +3,11 @@
 
 ## Getting started
 
-`$ npm install react-native-react-native-reachability --save`
+`$ npm install react-native-reachability --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-react-native-reachability`
+`$ react-native link react-native-reachability`
 
 ### Manual installation
 
@@ -26,17 +26,17 @@
   - Add `new NativeReachabilityPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-react-native-reachability'
-  	project(':react-native-react-native-reachability').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-react-native-reachability/android')
+  	include ':react-native-reachability'
+  	project(':react-native-reachability').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-reachability/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-react-native-reachability')
+      compile project(':react-native-reachability')
   	```
 
 ## Usage
 ```javascript
-import NativeReachability from 'react-native-react-native-reachability';
+import NativeReachability from 'react-native-reachability';
 
 // TODO: What to do with the module?
 NativeReachability;
