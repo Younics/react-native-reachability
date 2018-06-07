@@ -1,21 +1,25 @@
-import { Platform, NativeModules } from 'react-native';
+import { Platform, NativeModules } from 'react-native'
 
-const { RNReachability } = NativeModules;
+const { RNReachability } = NativeModules
 
 export const isReachable = async (timeout?: Number) => {
-  timeout = timeout ? timeout : 5000;
+	timeout = timeout ? timeout : 5000
 
-  return new Promise((resolve, reject) => {
-    RNReachability.isReachable(timeout)
-      .then(result => {
-        if (Platform.OS === 'ios') {
-          resolve(result === 1 ? true : false);
-        } else {
-          resolve(result);
-        }
-      })
-      .catch(error => {
-        reject(error);
-      });
-  })
+	return new Promise((resolve, reject) => {
+		RNReachability.isReachable(timeout)
+			.then(result => {
+				if (Platform.OS === 'ios') {
+					resolve(result === 1 ? true : false)
+				} else {
+					resolve(result)
+				}
+			})
+			.catch(error => {
+				reject(error)
+			})
+	})
+}
+
+export default {
+	isReachable,
 }
