@@ -5,7 +5,7 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface NativeReachability : NSObject <RCTBridgeModule>
+@interface RNReachability : NSObject <RCTBridgeModule>
 
 @end
   
