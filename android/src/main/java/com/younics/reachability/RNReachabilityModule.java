@@ -9,18 +9,18 @@ import com.facebook.react.bridge.ReactMethod;
 
 import java.net.InetAddress;
 
-public class NativeReachabilityModule extends ReactContextBaseJavaModule {
+public class RNReachabilityModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
 
-  public NativeReachabilityModule(ReactApplicationContext reactContext) {
+  public RNReachabilityModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }
 
   @Override
   public String getName() {
-    return "NativeReachability";
+    return "RNReachability";
   }
 
   @ReactMethod

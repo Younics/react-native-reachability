@@ -1,12 +1,12 @@
 import { Platform, NativeModules } from 'react-native';
 
-const { NativeReachability } = NativeModules;
+const { RNReachability } = NativeModules;
 
 export const isReachable = async (timeout?: Number) => {
   timeout = timeout ? timeout : 5000;
 
   return new Promise((resolve, reject) => {
-    NativeReachability.isReachable(timeout)
+    RNReachability.isReachable(timeout)
       .then(result => {
         if (Platform.OS === 'ios') {
           resolve(result === 1 ? true : false);
