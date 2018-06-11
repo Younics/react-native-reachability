@@ -1,5 +1,7 @@
-
 # react-native-reachability
+=============
+
+React Native tool for checking network reachability iOS/Android
 
 ## Getting started
 
