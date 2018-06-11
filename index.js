@@ -1,4 +1,6 @@
-import { Platform, NativeModules } from 'react-native'
+// @flow
+
+import { NativeModules } from 'react-native'
 
 const { RNReachability } = NativeModules
 

@@ -1,30 +1,32 @@
 {
-	"name": "react-native-reachability",
-	"version": "1.0.4",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [
-		"react-native",
-		"reachability"
-	],
-	"author": "Younics",
-	"license": "MIT",
-	"peerDependencies": {
-		"react": "*",
-		"react-native": ">= 0.48.0"
-	},
-	"devDependencies": {
-		"eslint": "^4.19.1",
-		"eslint-config-standard": "^11.0.0",
-		"eslint-plugin-import": "^2.12.0",
-		"eslint-plugin-node": "^6.0.1",
-		"eslint-plugin-promise": "^3.8.0",
-		"eslint-plugin-react": "^7.9.1",
-		"eslint-plugin-react-native": "^3.2.1",
-		"eslint-plugin-standard": "^3.1.0",
-		"prettier-eslint": "^8.8.1"
-	}
+  "name": "react-native-reachability",
+  "version": "1.0.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "reachability"
+  ],
+  "author": "Younics",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": ">= 0.48.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.9.1",
+    "eslint-plugin-react-native": "^3.2.1",
+    "eslint-plugin-standard": "^3.1.0",
+    "prettier-eslint": "^8.8.1"
+  }
 }
