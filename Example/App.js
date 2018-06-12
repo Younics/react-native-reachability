@@ -30,7 +30,7 @@ export default class App extends Component {
     this._setReachabilityTimer()
   }
 
-  componentWillMount () {
+  componentWillUnmount () {
     clearTimeout(this.reachabilityTimer)
   }
 
