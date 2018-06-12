@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import Network from '../index' TODO: figure out if this can be done
+import Network from '../index'
 
 export default class App extends Component {
   state = {
@@ -37,12 +37,12 @@ export default class App extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text style={styles.reachabilityParent}>
+        <Text style={styles.reachability}>
           Network is{' '}
           <Text
             style={{
               fontWeight: 'bold',
-              color: this.state.isReachable ? 'green' : 'red'
+              color: this.state.isReachable ? '#21903F' : '#DD1B21'
             }}
           >
             {this.state.isReachable ? 'reachable' : 'not reachable'}
@@ -60,13 +60,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF'
   },
-  welcome: {
-    fontSize: 24,
-    textAlign: 'center',
-    margin: 10
-  },
   reachability: {
-    fontSize: 24,
+    fontSize: 22,
     textAlign: 'center'
   }
 })
