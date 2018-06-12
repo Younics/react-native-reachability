@@ -1,0 +1,5 @@
+rootProject.name = 'RNReachabilityExample'
+include ':react-native-reachability'
+project(':react-native-reachability').projectDir = new File(rootProject.projectDir, '../../android')
+
+include ':app'
