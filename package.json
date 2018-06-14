@@ -4,9 +4,9 @@
   "description": "Simple Netinfo-like library that checks if your React Native app has access to internet.",
   "main": "index.js",
   "scripts": {
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Please use Yarn to install packages')\"",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "test:prepare": "cd node_modules/ && ln -s ../Example/node_modules/react-native ./react-native",
     "test": "jest"
   },
   "keywords": [

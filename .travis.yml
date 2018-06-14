@@ -14,4 +14,4 @@ install:
 - yarn global add codecov
 - yarn && cd ./Example && yarn && cd ..
 script:
-- yarn run test:prepare && yarn run test && codecov
+- yarn run test && codecov
