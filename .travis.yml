@@ -12,6 +12,6 @@ branches:
   - develop
 install:
 - yarn global add codecov
-- yarn
+- yarn && cd ./Example && yarn
 script:
 - yarn run test:prepare && yarn run test && codecov
