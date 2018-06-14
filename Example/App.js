@@ -2,41 +2,19 @@
 
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import Network from '../index'
+import Network from 'react-native-reachability'
 
 export default class App extends Component {
   state = {
     isReachable: true
   }
 
-  // we use the same value for thread sleep and for the timer here, just for consistency
-  _reachabilityTimeout = 3000
-
-  _checkIfNetworkIsReachable = () => {
-    Network.isReachable(this._reachabilityTimeout)
-      .then(isReachable => this.setState({ isReachable }))
-      .catch(error => console.error(error))
-  }
-
-  _setReachabilityTimer = () => {
-    this._checkIfNetworkIsReachable()
-    this.reachabilityTimer = setTimeout(
-      this._setReachabilityTimer,
-      this._reachabilityTimeout
-    )
-  }
-
-  componentDidMount () {
-    this._setReachabilityTimer()
-  }
-
-  componentWillUnmount () {
-    clearTimeout(this.reachabilityTimer)
-  }
-
   render () {
     return (
       <View style={styles.container}>
+        <Network
+          onReachabilityChange={isReachable => this.setState({ isReachable })}
+        />
         <Text style={styles.reachability}>
           Network is{' '}
           <Text
