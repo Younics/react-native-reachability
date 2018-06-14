@@ -34,7 +34,9 @@
     "eslint-plugin-react-native": "^3.2.1",
     "eslint-plugin-standard": "^3.1.0",
     "jest": "^23.1.0",
-    "prettier-eslint": "^8.8.1"
+    "prettier-eslint": "^8.8.1",
+    "react": "^16.4.1",
+    "react-native": "^0.55.4"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
