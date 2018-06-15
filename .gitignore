@@ -46,3 +46,4 @@ buck-out/
 
 # Other
 .vscode/
+coverage/
