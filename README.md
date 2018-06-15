@@ -1,4 +1,4 @@
-# react-native-reachability [![Build Status](https://travis-ci.org/Younics/react-native-reachability.svg?branch=master)](https://travis-ci.org/Younics/react-native-reachability) [![codecov](https://codecov.io/gh/Younics/react-native-reachability/branch/master/graph/badge.svg)](https://codecov.io/gh/Younics/react-native-reachability)
+# react-native-reachability [![Build Status](https://travis-ci.org/Younics/react-native-reachability.svg?branch=master)](https://travis-ci.org/Younics/react-native-reachability) [![codecov](https://codecov.io/gh/Younics/react-native-reachability/branch/master/graph/badge.svg)](https://codecov.io/gh/Younics/react-native-reachability) [![npm version](https://badge.fury.io/js/react-native-reachability.svg)](https://badge.fury.io/js/react-native-reachability)
 
 
 React Native tool for checking network reachability iOS/Android
