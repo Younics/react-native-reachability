@@ -1,4 +1,4 @@
-# react-native-reachability
+# react-native-reachability [![Build Status](https://travis-ci.org/Younics/react-native-reachability.svg?branch=master)](https://travis-ci.org/Younics/react-native-reachability)
 
 React Native tool for checking network reachability iOS/Android
 
