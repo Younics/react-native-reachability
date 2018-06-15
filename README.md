@@ -1,5 +1,4 @@
-# react-native-reachability [![Build Status](https://travis-ci.org/Younics/react-native-reachability.svg?branch=master)](https://travis-ci.org/Younics/react-native-reachability) [![codecov](https://codecov.io/gh/Younics/react-native-reachability/branch/master/graph/badge.svg)](https://codecov.io/gh/Younics/react-native-reachability) [![npm version](https://badge.fury.io/js/react-native-reachability.svg)](https://badge.fury.io/js/react-native-reachability)
-
+# react-native-reachability [![npm version](https://badge.fury.io/js/react-native-reachability.svg)](https://badge.fury.io/js/react-native-reachability) [![Build Status](https://travis-ci.org/Younics/react-native-reachability.svg?branch=master)](https://travis-ci.org/Younics/react-native-reachability) [![codecov](https://codecov.io/gh/Younics/react-native-reachability/branch/master/graph/badge.svg)](https://codecov.io/gh/Younics/react-native-reachability) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 React Native tool for checking network reachability iOS/Android
 
@@ -45,3 +44,15 @@ import Network from 'react-native-reachability'
 const timeout = 1000 // default is 5000 milis
 const isReachable = await Network.isReachable(timeout) // timeout is optional
 ```
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars1.githubusercontent.com/u/23213144?v=4" width="100px;"/><br /><sub><b>Filip Hoško</b></sub>](https://github.com/filiphosko)<br />[💻](https://github.com/Younics/react-native-reachability/commits?author=filiphosko "Code") [📖](https://github.com/Younics/react-native-reachability/commits?author=filiphosko "Documentation") [🎨](#design-filiphosko "Design") [💡](#example-filiphosko "Examples") [🤔](#ideas-filiphosko "Ideas, Planning, & Feedback") [⚠️](https://github.com/Younics/react-native-reachability/commits?author=filiphosko "Tests") [🚇](#infra-filiphosko "Infrastructure (Hosting, Build-Tools, etc)") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
