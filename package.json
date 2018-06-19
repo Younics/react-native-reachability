@@ -6,10 +6,7 @@
   "scripts": {
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "flow": "flow",
-    "lint": "eslint .",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Please use yarn to install packages')\"",
-    "precommit": "yarn lint && yarn flow && yarn test",
     "test": "jest"
   },
   "keywords": [
