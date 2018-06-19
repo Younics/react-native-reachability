@@ -2,17 +2,17 @@
 
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import Network from 'react-native-reachability'
+import { NetworkComponent } from 'react-native-reachability'
 
 export default class App extends Component {
   state = {
     isReachable: true
   }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
-        <Network
+        <NetworkComponent
           onReachabilityChange={isReachable => this.setState({ isReachable })}
         />
         <Text style={styles.reachability}>
