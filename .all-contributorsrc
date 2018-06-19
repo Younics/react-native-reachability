@@ -1,0 +1,50 @@
+{
+  "projectName": "react-native-reachability",
+  "projectOwner": "Younics",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "filiphosko",
+      "name": "Filip Hoško",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/23213144?v=4",
+      "profile": "https://github.com/filiphosko",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "example",
+        "ideas",
+        "test",
+        "infra"
+      ]
+    },
+    {
+      "login": "Wreit",
+      "name": "Michal Balšianka",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7254177?v=4",
+      "profile": "https://github.com/Wreit",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "example",
+        "ideas"
+      ]
+    },
+    {
+      "login": "xxramonxx",
+      "name": "xxramonxx",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13818216?v=4",
+      "profile": "https://github.com/xxramonxx",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ]
+}
