@@ -10,7 +10,7 @@
 
 RCT_EXPORT_MODULE()
 
-- (NSArray<NSString *> *)supportedEvents { return @[@"onReachabilityChange", @"onError"]; }
+- (NSArray<NSString *> *)supportedEvents { return @[@"onReachabilityChange"]; }
 
 - (void) _start
 {
@@ -29,12 +29,14 @@ RCT_EXPORT_MODULE()
         if ([self bridge] != nil && thisBgTask == bgTask) {
             BOOL localStatus = YES;
             
+            [self sendEventWithName:@"onReachabilityChange" body:@(localStatus)];
+            
             while (isRunning) {
                 BOOL internalStatus = [self _isReachable: (NSInteger *) 3000];
                 
                 if (internalStatus != localStatus) {
                     localStatus = internalStatus;
-                    [self sendEventWithName:@"com.younics.reachability:onReachabilityChange" body:@(localStatus)];
+                    [self sendEventWithName:@"onReachabilityChange" body:@(localStatus)];
                 }
                 
                 [NSThread sleepForTimeInterval:3.0f];

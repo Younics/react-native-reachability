@@ -78,7 +78,7 @@ public class RNReachabilityModule extends ReactContextBaseJavaModule {
         try {
           if (isNetworkAvailable(currentActivity)) {
             try {
-              HttpURLConnection urlc = (HttpURLConnection) (new URL("https://app.ecakaren.sk").openConnection());
+              HttpURLConnection urlc = (HttpURLConnection) (new URL("https://www.google.com/").openConnection());
               urlc.setConnectTimeout(3000);
               urlc.connect();
               internalStatus = urlc.getResponseCode() == 200;

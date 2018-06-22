@@ -1,10 +1,18 @@
-// @flow
+/* @flow */
 
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { NetworkComponent } from 'react-native-reachability'
+import React, { Component } from "react"
+import { StyleSheet, Text, View } from "react-native"
+import { Network } from "react-native-reachability"
 
-export default class App extends Component {
+type Props = {
+  children: any
+}
+
+type State = {
+  isReachable: boolean
+}
+
+export default class App extends Component<Props, State> {
   state = {
     isReachable: true
   }
@@ -12,18 +20,16 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <NetworkComponent
-          onReachabilityChange={isReachable => this.setState({ isReachable })}
-        />
+        <Network onChange={isReachable => this.setState({ isReachable })} />
         <Text style={styles.reachability}>
-          Network is{' '}
+          Network is{" "}
           <Text
             style={{
-              fontWeight: 'bold',
-              color: this.state.isReachable ? '#21903F' : '#DD1B21'
+              fontWeight: "bold",
+              color: this.state.isReachable ? "#21903F" : "#DD1B21"
             }}
           >
-            {this.state.isReachable ? 'reachable' : 'not reachable'}
+            {this.state.isReachable ? "reachable" : "not reachable"}
           </Text>
         </Text>
       </View>
@@ -34,12 +40,12 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
   },
   reachability: {
     fontSize: 22,
-    textAlign: 'center'
+    textAlign: "center"
   }
 })
