@@ -2,6 +2,9 @@
 package com.younics.reachability;
 
 import android.os.AsyncTask;
+import java.net.Socket;
+import java.io.IOException;
+import java.net.InetSocketAddress;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -24,15 +27,19 @@ public class RNReachabilityModule extends ReactContextBaseJavaModule {
     return "RNReachability";
   }
 
+
   @ReactMethod
   public void isReachable(final int timeout, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
         try {
-          promise.resolve(InetAddress.getByName("8.8.8.8").isReachable(timeout));
-        } catch (Exception e){
-          promise.reject(e);
+          try (Socket soc = new Socket()) {
+            soc.connect(new InetSocketAddress(InetAddress.getByName("8.8.8.8"), 443), timeout);
+          }
+          promise.resolve(true);
+        } catch (IOException ex) {
+          promise.resolve(false);
         }
       }
     });
