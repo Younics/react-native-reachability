@@ -1,26 +1,30 @@
 /* @flow */
 
-import React, { Component } from "react"
-import { StyleSheet, Text, View } from "react-native"
-import { Network } from "react-native-reachability"
+import React, { PureComponent } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { Network } from "react-native-reachability";
 
 type Props = {
   children: any
-}
+};
 
 type State = {
   isReachable: boolean
-}
+};
 
-export default class App extends Component<Props, State> {
+export default class App extends PureComponent<Props, State> {
   state = {
     isReachable: true
-  }
+  };
+
+  _handleReachabilityChange = (isReachable: boolean) => {
+    this.setState({ isReachable });
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <Network onChange={isReachable => this.setState({ isReachable })} />
+        <Network timeout={6000} onChange={this._handleReachabilityChange} />
         <Text style={styles.reachability}>
           Network is{" "}
           <Text
@@ -33,7 +37,7 @@ export default class App extends Component<Props, State> {
           </Text>
         </Text>
       </View>
-    )
+    );
   }
 }
 
@@ -48,4 +52,4 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: "center"
   }
-})
+});

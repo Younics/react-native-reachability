@@ -11,6 +11,9 @@ import {
 const { RNReachability } = NativeModules
 
 type Props = {
+  timeout: number,
+  hostname: string,
+  port: number,
   onChange: (isReachable: boolean) => void,
   onError: (message: string) => void
 }
@@ -56,7 +59,14 @@ export class Network extends PureComponent<Props> {
   }
 
   componentDidMount() {
-    RNReachability.startListener()
+    const { hostname = "8.8.8.8", port = 443, timeout = 5000 } = this.props
+
+    const startListener = RNReachability.startListener
+
+    // TODO: refactor
+    Platform.OS === "android"
+      ? startListener(hostname, port, timeout)
+      : startListener()
 
     Platform.OS === "android"
       ? this._registerAndroidListeners()
