@@ -1,16 +1,16 @@
-jest.setMock('react-native', {
+jest.setMock("react-native", {
   NativeModules: {
     RNReachability: {
-      isReachable: jest.fn().mockResolvedValue(1)
+      isReachable: jest.fn().mockResolvedValue(true)
     }
   }
 })
 
-describe('Network', () => {
-  const Network = require('../index')
+describe("Network", () => {
+  const { isReachable } = require("../src")
 
-  it('resolves a promise', () => {
+  it("resolves a promise", () => {
     expect.assertions(1)
-    return expect(Network.isReachable()).resolves.toBe(true)
+    return expect(isReachable()).resolves.toBe(true)
   })
 })
