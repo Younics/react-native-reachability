@@ -15,8 +15,11 @@ class Reachability {
         int pt = port > 0 ? port : 443;
 
         try {
-            try (Socket soc = new Socket()) {
+            Socket soc = new Socket();
+            try {
                 soc.connect(new InetSocketAddress(InetAddress.getByName(hn), pt), tm);
+            } finally {
+                soc.close();
             }
             promise.resolve(true);
         } catch (IOException ex) {

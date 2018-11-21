@@ -36,8 +36,11 @@ class ReachabilityAsyncTask extends AsyncTask<Void, Void, Boolean> {
     public Boolean doInBackground(Void... records) {
         while (isRunning) {
             try {
-                try (Socket soc = new Socket()) {
+                Socket soc = new Socket();
+                try {
                     soc.connect(new InetSocketAddress(InetAddress.getByName(hostname), port), timeout);
+                } finally {
+                    soc.close();
                 }
                 if (isReachable == null || isReachable == false) {
                     isReachable = true;
