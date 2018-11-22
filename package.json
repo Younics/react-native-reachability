@@ -1,16 +1,19 @@
 {
   "name": "react-native-reachability",
   "version": "1.0.5",
-  "description": "This library checks if the device is online.",
-  "main": "index.js",
+  "description": "Simple Netinfo-like library that checks if your React Native app has access to internet.",
+  "main": "src/index.js",
   "scripts": {
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Please use yarn to install packages')\"",
+    "test": "jest"
   },
   "keywords": [
     "react-native",
-    "reachability"
+    "reachability",
+    "online",
+    "netinfo"
   ],
   "author": "Younics",
   "license": "MIT",
@@ -23,13 +26,24 @@
     "babel-eslint": "^8.2.3",
     "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.49.3",
     "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.9.1",
-    "eslint-plugin-react-native": "^3.2.1",
     "eslint-plugin-standard": "^3.1.0",
-    "prettier-eslint": "^8.8.1"
+    "flow-bin": "^0.74.0",
+    "jest": "^23.1.0",
+    "prettier-eslint": "^8.8.1",
+    "react": "^16.4.1",
+    "react-native": "^0.55.4",
+    "react-test-renderer": "^16.6.3",
+    "standard": "^11.0.1"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
