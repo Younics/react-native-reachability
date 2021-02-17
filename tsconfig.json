@@ -1,0 +1,21 @@
+{
+    "include": ["./src/**/*"],
+    "compilerOptions": {    
+      "typeRoots": ["src/@types", "./node_modules/@types"],
+      "target": "es5",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "types": ["node"],
+      "lib": ["dom", "es2017"],
+      "allowJs": false,
+      "jsx": "react",
+      "strict": true,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "noEmit": true,
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": ".",
+    }
+  }
