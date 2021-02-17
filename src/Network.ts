@@ -1,5 +1,3 @@
-/* @flow */
-
 import { PureComponent } from "react"
 import {
   DeviceEventEmitter,
@@ -10,18 +8,18 @@ import {
 
 const { RNReachability } = NativeModules
 
-type Props = {
-  timeout: number,
-  hostname: string,
-  port: number,
-  onChange: (isReachable: boolean) => void,
-  onError: (message: string) => void
+interface Props {
+  timeout: number;
+  hostname: string;
+  port: number;
+  onChange: (isReachable: boolean) => void;
+  onError: (message: string) => void;
 }
 
 export class Network extends PureComponent<Props> {
   reachabilityListener: any
 
-  _handleError = message => {
+  _handleError = (message: string) => {
     const { onError } = this.props
 
     if (typeof onError === "function") {
@@ -29,7 +27,7 @@ export class Network extends PureComponent<Props> {
     }
   }
 
-  _handleReachabilityChange = isReachable => {
+  _handleReachabilityChange = (isReachable: boolean) => {
     const { onChange } = this.props
 
     if (typeof onChange === "function") {
