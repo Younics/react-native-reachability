@@ -61,14 +61,13 @@ export class Network extends PureComponent<Props> {
 
     const startListener = RNReachability.startListener
 
-    // TODO: refactor
-    Platform.OS === "android"
-      ? startListener(hostname, port, timeout)
-      : startListener()
-
-    Platform.OS === "android"
-      ? this._registerAndroidListeners()
-      : this._registerIOSListeners()
+    if (Platform.OS === "android") {
+      startListener(hostname, port, timeout)
+      this._registerAndroidListeners()
+    } else {
+      startListener()
+      this._registerIOSListeners()
+    }
   }
 
   componentWillUnmount() {
