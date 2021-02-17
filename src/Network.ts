@@ -1,12 +1,12 @@
-import { PureComponent } from "react"
+import { PureComponent } from 'react';
 import {
   DeviceEventEmitter,
   NativeEventEmitter,
   NativeModules,
-  Platform
-} from "react-native"
+  Platform,
+} from 'react-native';
 
-const { RNReachability } = NativeModules
+const { RNReachability } = NativeModules;
 
 interface Props {
   timeout: number;
@@ -17,65 +17,65 @@ interface Props {
 }
 
 export class Network extends PureComponent<Props> {
-  reachabilityListener: any
+  reachabilityListener: any;
 
   _handleError = (message: string) => {
-    const { onError } = this.props
+    const { onError } = this.props;
 
-    if (typeof onError === "function") {
-      onError(message)
+    if (typeof onError === 'function') {
+      onError(message);
     }
-  }
+  };
 
   _handleReachabilityChange = (isReachable: boolean) => {
-    const { onChange } = this.props
+    const { onChange } = this.props;
 
-    if (typeof onChange === "function") {
-      onChange(isReachable)
+    if (typeof onChange === 'function') {
+      onChange(isReachable);
     }
-  }
+  };
 
   _registerAndroidListeners = () => {
     DeviceEventEmitter.addListener(
-      "com.younics.reachability:onReachabilityChange",
-      this._handleReachabilityChange
-    )
+      'com.younics.reachability:onReachabilityChange',
+      this._handleReachabilityChange,
+    );
 
     DeviceEventEmitter.addListener(
-      "com.younics.reachability:onError",
-      this._handleError
-    )
-  }
+      'com.younics.reachability:onError',
+      this._handleError,
+    );
+  };
 
   _registerIOSListeners = () => {
-    const reachabilityEmitter = new NativeEventEmitter(RNReachability)
+    const reachabilityEmitter = new NativeEventEmitter(RNReachability);
 
     this.reachabilityListener = reachabilityEmitter.addListener(
-      "onReachabilityChange",
-      this._handleReachabilityChange
-    )
-  }
+      'onReachabilityChange',
+      this._handleReachabilityChange,
+    );
+  };
 
   componentDidMount() {
-    const { hostname = "8.8.8.8", port = 443, timeout = 5000 } = this.props
+    const { hostname = '8.8.8.8', port = 443, timeout = 5000 } = this.props;
 
-    const startListener = RNReachability.startListener
+    const startListener = RNReachability.startListener;
 
-    if (Platform.OS === "android") {
-      startListener(hostname, port, timeout)
-      this._registerAndroidListeners()
+    if (Platform.OS === 'android') {
+      startListener(hostname, port, timeout);
+      this._registerAndroidListeners();
     } else {
-      startListener()
-      this._registerIOSListeners()
+      startListener();
+      this._registerIOSListeners();
     }
   }
 
   componentWillUnmount() {
-    RNReachability.stopListener()
-    if (this.reachabilityListener) this.reachabilityListener.remove()
+    RNReachability.stopListener();
+    if (this.reachabilityListener) this.reachabilityListener.remove();
   }
 
   render() {
-    return null
+    return null;
   }
 }

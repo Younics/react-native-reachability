@@ -1,12 +1,12 @@
-import { NativeModules } from "react-native"
+import { NativeModules } from 'react-native';
 
-export { Network } from "./Network"
+export { Network } from './Network';
 
-const { RNReachability } = NativeModules
+const { RNReachability } = NativeModules;
 
 export const isReachable = (timeout: number = 5000): Promise<boolean> =>
-  RNReachability.isReachable(timeout)
+  RNReachability.isReachable(timeout);
 
 export default {
-  isReachable
-}
+  isReachable,
+};
