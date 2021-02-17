@@ -14,12 +14,13 @@ interface Props {
   port: number;
   onChange: (isReachable: boolean) => void;
   onError: (message: string) => void;
+  onPing: (isReachable: boolean) => void;
 }
 
 export class Network extends PureComponent<Props> {
   reachabilityListener: any;
 
-  _handleError = (message: string) => {
+  handleError = (message: string) => {
     const { onError } = this.props;
 
     if (typeof onError === 'function') {
@@ -27,7 +28,7 @@ export class Network extends PureComponent<Props> {
     }
   };
 
-  _handleReachabilityChange = (isReachable: boolean) => {
+  handleReachabilityChange = (isReachable: boolean) => {
     const { onChange } = this.props;
 
     if (typeof onChange === 'function') {
@@ -35,15 +36,29 @@ export class Network extends PureComponent<Props> {
     }
   };
 
-  _registerAndroidListeners = () => {
+  handlePing = (isReachable: boolean) => {
+    const { onPing } = this.props;
+
+    if (typeof onPing === 'function') {
+      onPing(isReachable);
+    }
+  };
+
+  registerAndroidListeners = () => {
     DeviceEventEmitter.addListener(
       'com.younics.reachability:onReachabilityChange',
-      this._handleReachabilityChange,
+      this.handleReachabilityChange,
     );
 
     DeviceEventEmitter.addListener(
+      'com.younics.reachability:onPing',
+      this.handlePing,
+    );
+
+
+    DeviceEventEmitter.addListener(
       'com.younics.reachability:onError',
-      this._handleError,
+      this.handleError,
     );
   };
 
@@ -52,7 +67,7 @@ export class Network extends PureComponent<Props> {
 
     this.reachabilityListener = reachabilityEmitter.addListener(
       'onReachabilityChange',
-      this._handleReachabilityChange,
+      this.handleReachabilityChange,
     );
   };
 
@@ -63,7 +78,7 @@ export class Network extends PureComponent<Props> {
 
     if (Platform.OS === 'android') {
       startListener(hostname, port, timeout);
-      this._registerAndroidListeners();
+      this.registerAndroidListeners();
     } else {
       startListener();
       this._registerIOSListeners();

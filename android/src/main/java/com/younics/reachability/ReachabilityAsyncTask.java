@@ -42,11 +42,16 @@ class ReachabilityAsyncTask extends AsyncTask<Void, Void, Boolean> {
                 } finally {
                     soc.close();
                 }
+
+                handleConnection(true);
+
                 if (isReachable == null || isReachable == false) {
                     isReachable = true;
                     updateReachabilityStatus(true);
                 }
             } catch (IOException ex) {
+                handleConnection(false);
+
                 if (isReachable == null || isReachable == true) {
                     isReachable = false;
                     updateReachabilityStatus(false);
@@ -57,6 +62,7 @@ class ReachabilityAsyncTask extends AsyncTask<Void, Void, Boolean> {
                 Thread.sleep(timeout);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                sendErrorMessage(e.getMessage());
             }
         }
 
@@ -80,8 +86,13 @@ class ReachabilityAsyncTask extends AsyncTask<Void, Void, Boolean> {
                 .emit("com.younics.reachability:onReachabilityChange", isReachable);
     }
 
-    private void sendErrorMessage(String errorMessage, IOException nativeException) {
+    private void handleConnection(boolean isReachable) {
         reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit("com.younics.reachability:onError", errorMessage + nativeException.getMessage());
+                .emit("com.younics.reachability:onPing", isReachable);
+    }
+
+    private void sendErrorMessage(String errorMessage) {
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit("com.younics.reachability:onError", errorMessage);
     }
 }
